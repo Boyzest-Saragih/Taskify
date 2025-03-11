@@ -1,11 +1,12 @@
 const mongoose = require('mongoose')
 
 const TaskSchema = new mongoose.Schema({
-    title:String,
-    desc:String,
-    status:{String, enum:['todo','in-progress','completed'], default:"todo"},
-    userId : {typr:mongoose.Schema.Types.ObjectId, ref:"User"},
-    crearedAt:{type:Date,default:Date.now}
+    title: { type: String, required: true },
+    desc: String,
+    status: { type: String, enum: ["todo", "in-progress", "done"], default: "todo" },
+    user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+    createdAt: { type: Date, default: Date.now }
 })
 
-module.exports = mongoose.model("Task",TaskSchema)
+const Task = mongoose.model("Task", TaskSchema)
+module.exports = Task

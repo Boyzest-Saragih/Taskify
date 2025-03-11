@@ -3,8 +3,9 @@ dotenv.config()
 const express = require('express')
 const cors = require('cors')
 const cookieParser = require('cookie-parser')
-const userRouters = require('./routers/userRouters')
 const mongoose = require('mongoose')
+const userRouters = require('./routers/userRouters')
+const taskRouters = require('./routers/taskRouters')
 
 
 const app = express()
@@ -23,6 +24,7 @@ mongoose
 
 
 app.use('/user', userRouters)
+app.use('/task', taskRouters)
 
 app.listen(2000, () => {
     console.log('running http://localhost:2000')
