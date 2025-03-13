@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 const SidebarContext = createContext();
 
-const Sidebar = ({ children }) => {
+const SidebarElement = ({ children }) => {
   const [expand, setExpand] = useState(true);
   const { user } = useSelector((state) => state.auth);
 
@@ -49,25 +49,26 @@ const Sidebar = ({ children }) => {
   );
 };
 
-const SidebarItem = ({ icon, text, active, alert }) => {
+const SidebarItem = ({ icon, text, active, alert, onClick }) => {
   const { expand } = useContext(SidebarContext);
+  console.log(expand)
 
   return (
     <li
-    className={`
+      className={`
         relative flex items-center py-2 px-3 my-1
         font-medium rounded-md cursor-pointer
         transition-colors group
-        ${
-          active
-            ? "bg-gradient-to-tr from-indigo-200 to-indigo-100 text-indigo-800"
-            : "hover:bg-indigo-50 text-gray-600"
+        ${active
+          ? "bg-gradient-to-tr from-indigo-200 to-indigo-100 text-indigo-800"
+          : "hover:bg-indigo-50 text-gray-600"
         }
-        ${!expand?"justify-center":""}
+        ${!expand ? "justify-center" : ""}
     `}
+      onClick={onClick}
     >
       <div>
-      {icon}
+        {icon}
       </div>
       <span
         className={`transition-all duration-300 ${expand ? "opacity-100 w-auto ml-3" : "opacity-0 w-0"}`}
@@ -90,4 +91,4 @@ const SidebarItem = ({ icon, text, active, alert }) => {
   );
 };
 
-export { Sidebar, SidebarItem };
+export { SidebarElement, SidebarItem };
