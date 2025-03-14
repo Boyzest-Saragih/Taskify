@@ -4,7 +4,7 @@ import {Provider} from "react-redux"
 import {Routes, Route, BrowserRouter} from 'react-router-dom'
 import './App.css'
 import store from "./redux/store"
-import Register from './pages/Auth/register'
+import Register from './pages/Auth/Register'
 import Login from './pages/Auth/Login'
 import Landing from './pages/Landing'
 import Statistic from './pages/Statistic'

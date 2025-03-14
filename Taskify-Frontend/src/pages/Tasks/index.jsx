@@ -1,12 +1,15 @@
-import React from 'react'
-import Sidebar from '../Sidebar'
+import React from "react";
+import Sidebar from "../Sidebar";
+
 
 const Tasks = () => {
   return (
-    <div>
-      <Sidebar/>
+    <div className="flex">
+      <Sidebar />
+      <div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Tasks
+export default Tasks;
